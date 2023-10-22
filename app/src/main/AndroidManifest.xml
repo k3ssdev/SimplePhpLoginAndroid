@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginFormSQLiteAndroid"
+        android:parentActivityName=".MainActivity"
         tools:targetApi="31">
 
         <activity
@@ -25,6 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ActividadExitosa">
+            <!-- Otras configuraciones de la actividad, como la etiqueta y la orientación -->
+        </activity>
+
     </application>
 
 </manifest>
