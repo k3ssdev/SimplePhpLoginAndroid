@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginFormSQLiteAndroid</string>
+    <string name="app_name">SimplePhpLoginAndroid</string>
     <string name="Login">Iniciar Sesión</string>
     <string name="contrasena">Contraseña</string>
     <string name="usuario">Usuario</string>
