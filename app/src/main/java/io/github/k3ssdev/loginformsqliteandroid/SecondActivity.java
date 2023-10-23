@@ -11,15 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
-    private ListView listView;
+    private ListView listView_apr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_exitosa);
 
-        listView = findViewById(R.id.listView);
+        // Obtiene una referencia al ListView en la vista
+        listView_apr = findViewById(R.id.listView);
 
+        // Inicia la tarea asincrónica para consultar usuarios
         new ConsultarUsuariosTask().execute();
     }
 
@@ -34,13 +36,13 @@ public class SecondActivity extends AppCompatActivity {
         @Override
         protected List<User> doInBackground(Void... voids) {
             // Realiza tu consulta SQL aquí y crea una lista de usuarios
-            List<User> usuarios = new ArrayList<>();
+            List<User> usuarios_apr = new ArrayList<>();
 
             // Obtiene los datos de la base de datos
             WebServiceHandler webServiceHandler = new WebServiceHandler(SecondActivity.this);
-            usuarios = webServiceHandler.consultarUsuarios();
+            usuarios_apr = webServiceHandler.consultarUsuarios();
 
-            return usuarios;
+            return usuarios_apr;
         }
 
         @Override
@@ -50,7 +52,7 @@ public class SecondActivity extends AppCompatActivity {
                 UserAdapter adapter = new UserAdapter(SecondActivity.this, usuarios);
 
                 // Asigna el adaptador al ListView
-                listView.setAdapter(adapter);
+                listView_apr.setAdapter(adapter);
             }
         }
     }

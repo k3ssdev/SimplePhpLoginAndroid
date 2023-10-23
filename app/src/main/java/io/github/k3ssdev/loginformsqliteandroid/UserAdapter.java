@@ -10,49 +10,57 @@ import java.util.List;
 import android.view.LayoutInflater;
 
 public class UserAdapter extends BaseAdapter {
-    private final Context context;
-    private final List<User> usuarios;
+    // Contexto de la aplicación
+    private final Context context_apr;
+    // Lista de usuarios
+    private final List<User> usuarios_apr;
 
+    // Constructor
     public UserAdapter(Context context, List<User> usuarios) {
-        this.context = context;
-        this.usuarios = usuarios;
+        this.context_apr = context;
+        this.usuarios_apr = usuarios;
     }
 
+    // Devuelve la cantidad de elementos en la lista
     @Override
     public int getCount() {
-        return usuarios.size();
+        return usuarios_apr.size();
     }
 
+    // Obtiene un elemento de la lista en una posición específica
     @Override
     public Object getItem(int position) {
-        return usuarios.get(position);
+        return usuarios_apr.get(position);
     }
 
+    // Obtiene el ID de un elemento en una posición específica
     @Override
     public long getItemId(int position) {
         return position;
     }
 
+    // Obtiene la vista que muestra un elemento de la lista
     @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            // Infla la vista si es nula
+            LayoutInflater inflater = (LayoutInflater) context_apr.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.item_usuario, null);
         }
 
-        // Obtén las referencias a tus elementos de diseño en item_usuario.xml
-        TextView nombreUsuarioTextView = convertView.findViewById(R.id.nombreUsuarioTextView);
-        TextView contrasenaTextView = convertView.findViewById(R.id.contrasenaTextView);
-        TextView fechaNacimientoTextView = convertView.findViewById(R.id.fechaNacimientoTextView);
+        // Obtiene las referencias a los elementos de diseño en item_usuario.xml
+        TextView nombreUsuarioTextView_apr = convertView.findViewById(R.id.nombreUsuarioTextView);
+        TextView contrasenaTextView_apr = convertView.findViewById(R.id.contrasenaTextView);
+        TextView fechaNacimientoTextView_apr = convertView.findViewById(R.id.fechaNacimientoTextView);
 
-        // Obtén el usuario en la posición actual
-        User usuario = usuarios.get(position);
+        // Obtiene el usuario en la posición actual
+        User usuario = usuarios_apr.get(position);
 
-        // Establece los datos en tus elementos de diseño
-        nombreUsuarioTextView.setText(usuario.getNombreUsuario());
-        contrasenaTextView.setText(usuario.getContrasena());
-        fechaNacimientoTextView.setText(usuario.getFechaNacimiento());
+        // Establece los datos en los elementos de diseño
+        nombreUsuarioTextView_apr.setText(usuario.getNombreUsuario());
+        contrasenaTextView_apr.setText(usuario.getContrasena());
+        fechaNacimientoTextView_apr.setText(usuario.getFechaNacimiento());
 
         return convertView;
     }

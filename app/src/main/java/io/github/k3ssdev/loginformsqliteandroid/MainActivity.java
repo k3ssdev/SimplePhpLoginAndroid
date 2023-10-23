@@ -6,31 +6,29 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    // Constante para el mensaje extra
     //public static final String EXTRA_MESSAGE = "io.github.k3ssdev.loginformsqliteandroid.MESSAGE";
-    //private WebServiceHandler webServiceHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText editTextUsername = findViewById(R.id.editTextUsername);
-        EditText editTextPassword = findViewById(R.id.editTextPassword);
-        Button buttonLogin = findViewById(R.id.buttonLogin);
+        // Obtiene referencias a los elementos de la interfaz de usuario
+        EditText editTextUsername_apr = findViewById(R.id.editTextUsername);
+        EditText editTextPassword_apr = findViewById(R.id.editTextPassword);
+        Button buttonLogin_apr = findViewById(R.id.buttonLogin);
 
+        // Configura un escuchador de clic para el botón de inicio de sesión
+        buttonLogin_apr.setOnClickListener(v -> {
+            String usuario = editTextUsername_apr.getText().toString();
+            String contrasena = editTextPassword_apr.getText().toString();
 
-
-        buttonLogin.setOnClickListener(v -> {
-            String usuario = editTextUsername.getText().toString();
-            String contrasena = editTextPassword.getText().toString();
-
-            // Crear una instancia de WebServiceHandler
+            // Crea una instancia de WebServiceHandler
             WebServiceHandler webServiceHandler = new WebServiceHandler(this);
 
-            // Llamar a la tarea ValidarUsuario con execute
+            // Llama a la tarea ValidarUsuario con execute
             webServiceHandler.new ValidarUsuario().execute(usuario, contrasena);
-
         });
-
     }
 }

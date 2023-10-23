@@ -22,31 +22,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WebServiceHandler {
-    private Activity activity;
+    private Activity activity_apr;
 
     public WebServiceHandler(Activity activity) {
-        this.activity = activity;
+        this.activity_apr = activity;
     }
-
 
     public class ValidarUsuario extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
-            String usuario = params[0];
-            String contrasena = params[1];
-            String urlString = "http://192.168.1.227/validacuenta.php";
+            String usuario_apr = params[0];
+            String contrasena_apr = params[1];
+            String urlString_apr = "http://192.168.1.227/validacuenta.php";
 
-            String resultado = null;
+            String resultado_apr = null;
 
             try {
                 // Crear la conexión HTTP
-                URL url = new URL(urlString);
+                URL url = new URL(urlString_apr);
                 HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
                 conexion.setRequestMethod("POST");
                 conexion.setDoOutput(true);
 
                 // Crear los datos del formulario
-                String datos = "usuario=" + URLEncoder.encode(usuario, "UTF-8") + "&contrasena=" + URLEncoder.encode(contrasena, "UTF-8");
+                String datos = "usuario=" + URLEncoder.encode(usuario_apr, "UTF-8") + "&contrasena=" + URLEncoder.encode(contrasena_apr, "UTF-8");
 
                 // Escribir los datos en el cuerpo de la petición
                 OutputStream outputStream = conexion.getOutputStream();
@@ -68,19 +67,19 @@ public class WebServiceHandler {
                 conexion.disconnect();
 
                 // Procesar la respuesta del servidor
-                resultado = respuesta.toString();
+                resultado_apr = respuesta.toString();
 
                 // Parsear la respuesta XML
-                Document document = XMLParser.convertStringToXMLDocument(resultado);
+                Document document = XMLParser.convertStringToXMLDocument(resultado_apr);
 
                 // Obtener el contenido del elemento "estado"
                 NodeList estadoNodes = document.getElementsByTagName("estado");
                 if (estadoNodes.getLength() > 0) {
                     Node estadoNode = estadoNodes.item(0);
-                    String estado = estadoNode.getTextContent();
+                    String estado_apr = estadoNode.getTextContent();
 
                     // Haz algo con el valor del estado
-                    resultado = estado;
+                    resultado_apr = estado_apr;
                 } else {
                     // Manejar el caso en el que no se pueda encontrar el elemento "estado"
                     System.out.println("No se encontró el elemento 'estado'.");
@@ -89,7 +88,7 @@ public class WebServiceHandler {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return resultado;
+            return resultado_apr;
         }
 
         @Override
@@ -98,29 +97,27 @@ public class WebServiceHandler {
                 // Verifica el resultado y realiza las acciones necesarias
                 if (resultado.equals("ok")) {
                     // El resultado es "ok", abre la segunda actividad
-                    Intent intent = new Intent(activity, SecondActivity.class);
-                    activity.startActivity(intent);
+                    Intent intent = new Intent(activity_apr, SecondActivity.class);
+                    activity_apr.startActivity(intent);
                 } else if (resultado.equals("ko")) {
                     // El resultado es "ko", realiza otra acción
-                    Toast.makeText(activity, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity_apr, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show();
 
                 }
             } else {
                 // El resultado es null, hubo un error en la petición
-                Toast.makeText(activity, "Error en la petición", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity_apr, "Error en la petición", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-
-
     public List<User> consultarUsuarios() {
-        String urlString = "http://192.168.1.227/consultarusuarios.php";
-        List<User> usuarios = new ArrayList<>();
+        String urlString_apr = "http://192.168.1.227/consultarusuarios.php";
+        List<User> usuarios_apr = new ArrayList<>();
 
         try {
             // Crear la conexión HTTP
-            URL url = new URL(urlString);
+            URL url = new URL(urlString_apr);
             HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
             conexion.setRequestMethod("GET");
 
@@ -148,21 +145,18 @@ public class WebServiceHandler {
                 if (usuarioNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element usuarioElement = (Element) usuarioNode;
 
-                    String nombreUsuario = usuarioElement.getElementsByTagName("nombreUsuario").item(0).getTextContent();
-                    String contrasena = usuarioElement.getElementsByTagName("contrasena").item(0).getTextContent();
-                    String fechaNacimiento = usuarioElement.getElementsByTagName("fecha_nacimiento").item(0).getTextContent();
+                    String nombreUsuario_apr = usuarioElement.getElementsByTagName("nombreUsuario").item(0).getTextContent();
+                    String contrasena_apr = usuarioElement.getElementsByTagName("contrasena").item(0).getTextContent();
+                    String fechaNacimiento_apr = usuarioElement.getElementsByTagName("fecha_nacimiento").item(0).getTextContent();
 
-                    User usuario = new User(nombreUsuario, contrasena, fechaNacimiento);
-                    usuarios.add(usuario);
+                    User usuario = new User(nombreUsuario_apr, contrasena_apr, fechaNacimiento_apr);
+                    usuarios_apr.add(usuario);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return usuarios;
+        return usuarios_apr;
     }
-
-
 }
-
