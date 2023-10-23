@@ -54,7 +54,6 @@ Para ejecutar la aplicación de demostración:
 
 4. Ejecuta la aplicación en un emulador o dispositivo Android.
 
-Disfruta explorando y aprendiendo cómo funciona esta aplicación de demostración de inicio de sesión en Android.
 
 ---
 **Nota**: Asegúrate de modificar las rutas y las URL del servidor web en la sección de "Configuración" según tus necesidades específicas.
