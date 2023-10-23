@@ -34,8 +34,6 @@ public class SecondActivity extends AppCompatActivity {
     private class ConsultarUsuariosTask extends AsyncTask<Void, Void, List<User>> {
         @Override
         protected List<User> doInBackground(Void... voids) {
-            // Realiza tu consulta SQL aquí y crea una lista de usuarios
-
             // Obtiene los datos de la base de datos
             WebServiceHandler webServiceHandler = new WebServiceHandler(SecondActivity.this);
             List<User> usuarios_apr = webServiceHandler.consultarUsuarios();
