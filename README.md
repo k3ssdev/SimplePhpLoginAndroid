@@ -6,7 +6,7 @@ Esta es una aplicación de demostración que presenta un sencillo sistema de ini
 
 La aplicación consta de dos actividades:
 
-1. **Actividad Principal (`MainActivity.java`)**: Esta es la actividad principal que contiene un formulario de inicio de sesión. Está diseñada de manera responsiva utilizando ConstraintLayout y guías (guidelines) para un diseño flexible. La lógica se encarga de la validación de credenciales de inicio de sesión.
+1. **Actividad Principal (`MainActivity.java`)**: Esta es la actividad principal que contiene un formulario de inicio de sesión. Está diseñada de manera responsiva utilizando ConstraintLayout y guías (guidelines) para un diseño flexible. La lógica de interfaz de usuario y la validación inicial de credenciales de inicio de sesión se gestionan aquí. La aplicación utiliza otras clases, como `WebServiceHandler.java` y `XMLParser.java`, para comunicarse con el servidor web y procesar el resultado.
 
 2. **Actividad Exitosa (`ActividadExitosa.java`)**: Esta actividad se muestra después de un inicio de sesión exitoso. Muestra una lista de usuarios recuperados de la base de datos y proporciona un botón para volver a la actividad principal. Si el inicio de sesión falla, se almacena la IP del usuario y la marca de tiempo en una base de datos SQLite local de la aplicación.
 
