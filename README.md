@@ -55,9 +55,9 @@ Para ejecutar la aplicación de demostración:
 4. Ejecuta la aplicación en un emulador o dispositivo Android.
 
 
----
-**Nota**: Asegúrate de modificar las rutas y las URL del servidor web en la sección de "Configuración" según tus necesidades específicas.
-
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia [MIT](LICENSE).
+
+---
+**Nota**: Asegúrate de modificar las rutas y las URL del servidor web en la sección de "Configuración" según tus necesidades específicas.
