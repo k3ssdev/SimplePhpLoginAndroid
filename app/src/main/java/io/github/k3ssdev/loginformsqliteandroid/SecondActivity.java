@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.ListView;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
