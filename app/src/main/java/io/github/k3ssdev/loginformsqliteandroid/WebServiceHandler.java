@@ -78,11 +78,11 @@ public class WebServiceHandler {
                     Node estadoNode = estadoNodes.item(0);
                     String estado_apr = estadoNode.getTextContent();
 
-                    // Haz algo con el valor del estado
+                    // Asignar el resultado a la variable resultado_apr
                     resultado_apr = estado_apr;
                 } else {
                     // Manejar el caso en el que no se pueda encontrar el elemento "estado"
-                    System.out.println("No se encontró el elemento 'estado'.");
+                    resultado_apr = null;
                 }
 
             } catch (Exception e) {
@@ -106,7 +106,7 @@ public class WebServiceHandler {
                 }
             } else {
                 // El resultado es null, hubo un error en la petición
-                Toast.makeText(activity_apr, "Error en la petición", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity_apr, "Error en la conexión", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -156,7 +156,6 @@ public class WebServiceHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return usuarios_apr;
     }
 }
