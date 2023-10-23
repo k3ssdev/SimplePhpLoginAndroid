@@ -36,11 +36,10 @@ public class SecondActivity extends AppCompatActivity {
         @Override
         protected List<User> doInBackground(Void... voids) {
             // Realiza tu consulta SQL aquí y crea una lista de usuarios
-            List<User> usuarios_apr = new ArrayList<>();
 
             // Obtiene los datos de la base de datos
             WebServiceHandler webServiceHandler = new WebServiceHandler(SecondActivity.this);
-            usuarios_apr = webServiceHandler.consultarUsuarios();
+            List<User> usuarios_apr = webServiceHandler.consultarUsuarios();
 
             return usuarios_apr;
         }
