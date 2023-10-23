@@ -16,7 +16,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividad_exitosa);
+        setContentView(R.layout.activity_secondary);
 
         // Obtiene una referencia al ListView en la vista
         listView_apr = findViewById(R.id.listView);
