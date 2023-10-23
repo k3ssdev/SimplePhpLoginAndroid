@@ -98,7 +98,7 @@ public class WebServiceHandler {
                 // Verifica el resultado y realiza las acciones necesarias
                 if (resultado.equals("ok")) {
                     // El resultado es "ok", abre la segunda actividad
-                    Intent intent = new Intent(activity, ActividadExitosa.class);
+                    Intent intent = new Intent(activity, SecondActivity.class);
                     activity.startActivity(intent);
                 } else if (resultado.equals("ko")) {
                     // El resultado es "ko", realiza otra acción
@@ -114,9 +114,9 @@ public class WebServiceHandler {
 
 
 
-    public List<Usuario> consultarUsuarios() {
+    public List<User> consultarUsuarios() {
         String urlString = "http://192.168.1.227/consultarusuarios.php";
-        List<Usuario> usuarios = new ArrayList<>();
+        List<User> usuarios = new ArrayList<>();
 
         try {
             // Crear la conexión HTTP
@@ -152,7 +152,7 @@ public class WebServiceHandler {
                     String contrasena = usuarioElement.getElementsByTagName("contrasena").item(0).getTextContent();
                     String fechaNacimiento = usuarioElement.getElementsByTagName("fecha_nacimiento").item(0).getTextContent();
 
-                    Usuario usuario = new Usuario(nombreUsuario, contrasena, fechaNacimiento);
+                    User usuario = new User(nombreUsuario, contrasena, fechaNacimiento);
                     usuarios.add(usuario);
                 }
             }

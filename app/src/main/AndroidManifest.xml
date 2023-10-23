@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActividadExitosa">
+        <activity android:name=".SecondActivity">
             <!-- Otras configuraciones de la actividad, como la etiqueta y la orientación -->
         </activity>
 

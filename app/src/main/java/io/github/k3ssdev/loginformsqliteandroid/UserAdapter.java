@@ -1,5 +1,6 @@
 package io.github.k3ssdev.loginformsqliteandroid;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +9,11 @@ import android.widget.TextView;
 import java.util.List;
 import android.view.LayoutInflater;
 
-public class UsuarioAdapter extends BaseAdapter {
-    private Context context;
-    private List<Usuario> usuarios;
+public class UserAdapter extends BaseAdapter {
+    private final Context context;
+    private final List<User> usuarios;
 
-    public UsuarioAdapter(Context context, List<Usuario> usuarios) {
+    public UserAdapter(Context context, List<User> usuarios) {
         this.context = context;
         this.usuarios = usuarios;
     }
@@ -32,6 +33,7 @@ public class UsuarioAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -45,7 +47,7 @@ public class UsuarioAdapter extends BaseAdapter {
         TextView fechaNacimientoTextView = convertView.findViewById(R.id.fechaNacimientoTextView);
 
         // Obtén el usuario en la posición actual
-        Usuario usuario = usuarios.get(position);
+        User usuario = usuarios.get(position);
 
         // Establece los datos en tus elementos de diseño
         nombreUsuarioTextView.setText(usuario.getNombreUsuario());

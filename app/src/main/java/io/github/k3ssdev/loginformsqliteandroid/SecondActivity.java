@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActividadExitosa extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
     private ListView listView;
 
     @Override
@@ -30,24 +30,24 @@ public class ActividadExitosa extends AppCompatActivity {
         finish(); // Cierra la actividad actual
     }
 
-    private class ConsultarUsuariosTask extends AsyncTask<Void, Void, List<Usuario>> {
+    private class ConsultarUsuariosTask extends AsyncTask<Void, Void, List<User>> {
         @Override
-        protected List<Usuario> doInBackground(Void... voids) {
+        protected List<User> doInBackground(Void... voids) {
             // Realiza tu consulta SQL aquí y crea una lista de usuarios
-            List<Usuario> usuarios = new ArrayList<>();
+            List<User> usuarios = new ArrayList<>();
 
             // Obtiene los datos de la base de datos
-            WebServiceHandler webServiceHandler = new WebServiceHandler(ActividadExitosa.this);
+            WebServiceHandler webServiceHandler = new WebServiceHandler(SecondActivity.this);
             usuarios = webServiceHandler.consultarUsuarios();
 
             return usuarios;
         }
 
         @Override
-        protected void onPostExecute(List<Usuario> usuarios) {
+        protected void onPostExecute(List<User> usuarios) {
             if (usuarios != null) {
                 // Crea un adaptador personalizado para tu lista de usuarios
-                UsuarioAdapter adapter = new UsuarioAdapter(ActividadExitosa.this, usuarios);
+                UserAdapter adapter = new UserAdapter(SecondActivity.this, usuarios);
 
                 // Asigna el adaptador al ListView
                 listView.setAdapter(adapter);
