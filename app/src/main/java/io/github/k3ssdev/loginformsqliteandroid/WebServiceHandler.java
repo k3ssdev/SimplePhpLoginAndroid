@@ -22,12 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 public class WebServiceHandler {
     private Activity activity_apr;
+    private SQLiteHandler SQLiteHandler;
 
     public WebServiceHandler(Activity activity) {
         this.activity_apr = activity;
+        this.SQLiteHandler = new SQLiteHandler(activity);
     }
 
-    SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
 
     public class ValidarUsuario extends AsyncTask<String, Void, String[]> {
         @Override
