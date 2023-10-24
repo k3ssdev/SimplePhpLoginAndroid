@@ -6,4 +6,5 @@
     <string name="img">glider</string>
     <string name="fecha_nacimiento">Fecha Nacimiento</string>
     <string name="volver">Volver</string>
+    <string name="timestamp">TimeStamp</string>
 </resources>

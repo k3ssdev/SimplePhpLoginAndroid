@@ -120,6 +120,10 @@ public class WebServiceHandler {
 
                     // Insertar registro en la base de datos
                     sqLiteHandler.insertarRegistro(usuario_apr, contrasena_apr);
+
+                    // Abrir LogActivity
+                    Intent intent = new Intent(activity_apr, LogActivity.class);
+                    activity_apr.startActivity(intent);
                 }
             } else {
                 // El resultado es null, hubo un error en la petición

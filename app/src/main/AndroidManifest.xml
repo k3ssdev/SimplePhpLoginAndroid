@@ -31,6 +31,10 @@
             <!-- Otras configuraciones de la actividad, como la etiqueta y la orientación -->
         </activity>
 
+        <activity android:name=".LogActivity">
+            <!-- Otras configuraciones de la actividad, como la etiqueta y la orientación -->
+        </activity>
+
     </application>
 
 </manifest>
