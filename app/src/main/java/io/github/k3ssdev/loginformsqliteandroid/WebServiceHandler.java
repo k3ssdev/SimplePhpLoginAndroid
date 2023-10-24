@@ -28,6 +28,8 @@ public class WebServiceHandler {
         this.activity_apr = activity;
     }
 
+    SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
+
     public class ValidarUsuario extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
@@ -91,8 +93,9 @@ public class WebServiceHandler {
             return resultado_apr;
         }
 
-        @Override
-        protected void onPostExecute(String resultado) {
+        //@Override
+        protected void onPostExecute(String resultado, String usuario_apr, String contrasena_apr) {
+
             if (resultado != null) {
                 // Verifica el resultado y realiza las acciones necesarias
                 if (resultado.equals("ok")) {
@@ -102,6 +105,16 @@ public class WebServiceHandler {
                 } else if (resultado.equals("ko")) {
                     // El resultado es "ko", realiza otra acción
                     Toast.makeText(activity_apr, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
+                    // obtener usuario y contraseña introducidos
+                    String usuario = usuario_apr;
+                    String contrasena = contrasena_apr;
+
+                    // Insertar registro en la base de datos
+                    sqLiteHandler.insertarRegistro(usuario, contrasena);
+
+
+
 
                 }
             } else {
