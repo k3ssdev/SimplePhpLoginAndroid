@@ -21,6 +21,9 @@ SET time_zone = "+02:00";
 -- Base de datos: `apr`
 --
 
+CREATE DATABASE 'apr';
+USE 'apr';
+
 -- --------------------------------------------------------
 
 --
