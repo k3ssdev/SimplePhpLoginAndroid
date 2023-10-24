@@ -15,17 +15,16 @@ public class SQLiteHandler {
     // Constantes para la base de datos
     private static final String databaseName_apr = "AppLog.db";
     private static final String tableName_apr = "login";
-
-    private final SQLiteDatabase db;
+    private final SQLiteDatabase db_apr;
 
     // Constructor
     public SQLiteHandler(Context context) {
         // Abre o crea la base de datos
-        db = context.openOrCreateDatabase(databaseName_apr, Context.MODE_PRIVATE, null);
+        db_apr = context.openOrCreateDatabase(databaseName_apr, Context.MODE_PRIVATE, null);
 
         // Crea la tabla si no existe
         String sql = "CREATE TABLE IF NOT EXISTS " + tableName_apr + " (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TIMESTAMP, usuario TEXT, contrasena TEXT)";
-        db.execSQL(sql);
+        db_apr.execSQL(sql);
     }
 
     // Inserta un registro en la tabla con la marca de tiempo actual
@@ -41,14 +40,14 @@ public class SQLiteHandler {
         values.put("contrasena", contrasena);
 
         // Inserta el registro en la tabla
-        db.insert(tableName_apr, null, values);
+        db_apr.insert(tableName_apr, null, values);
     }
 
     // Consulta los registros de la tabla
     public List<Login> consultarRegistros() {
         // Consulta los registros
         List<Login> registros = new ArrayList<>();
-        Cursor cursor = db.query(tableName_apr, null, null, null, null, null, "timestamp DESC");
+        Cursor cursor = db_apr.query(tableName_apr, null, null, null, null, null, "timestamp DESC");
 
         // Recorre los registros
         while (cursor.moveToNext()) {
@@ -71,11 +70,11 @@ public class SQLiteHandler {
     /** @noinspection unused*/ // Elimina todos los registros de la tabla
     public void eliminarRegistros() {
         // Elimina los registros
-        db.delete(tableName_apr, null, null);
+        db_apr.delete(tableName_apr, null, null);
     }
 
     /** @noinspection unused*/ // Cierra la base de datos
     public void cerrarBaseDeDatos() {
-        db.close();
+        db_apr.close();
     }
 }
