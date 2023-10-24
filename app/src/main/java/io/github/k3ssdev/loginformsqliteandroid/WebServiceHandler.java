@@ -22,11 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 public class WebServiceHandler {
     private Activity activity_apr;
-    private SQLiteHandler SQLiteHandler;
 
     public WebServiceHandler(Activity activity) {
         this.activity_apr = activity;
-        this.SQLiteHandler = new SQLiteHandler(activity);
     }
 
 
@@ -35,7 +33,8 @@ public class WebServiceHandler {
         protected String[] doInBackground(String... params) {
             String usuario_apr = params[0];
             String contrasena_apr = params[1];
-            String urlString_apr = "http://192.168.1.227/validacuenta.php";
+            String urlString_apr = "http://simpleloginapp.duckdns.org/simplelogin/validacuenta.php";
+            //"http://192.168.1.227/validacuenta.php";
 
             String resultado_apr = null;
 
@@ -133,7 +132,8 @@ public class WebServiceHandler {
     }
 
     public List<User> consultarUsuarios() {
-        String urlString_apr = "http://192.168.1.227/consultarusuarios.php";
+        String urlString_apr = "http://simpleloginapp.duckdns.org/simplelogin/consultarusuarios.php";
+                //"http://192.168.1.227/consultarusuarios.php";
         List<User> usuarios_apr = new ArrayList<>();
 
         try {
