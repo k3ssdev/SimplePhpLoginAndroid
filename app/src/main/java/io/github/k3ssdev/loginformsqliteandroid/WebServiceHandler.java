@@ -20,7 +20,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 public class WebServiceHandler {
     private Activity activity_apr;
 
@@ -30,9 +29,9 @@ public class WebServiceHandler {
 
     SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
 
-    public class ValidarUsuario extends AsyncTask<String, Void, String> {
+    public class ValidarUsuario extends AsyncTask<String, Void, String[]> {
         @Override
-        protected String doInBackground(String... params) {
+        protected String[] doInBackground(String... params) {
             String usuario_apr = params[0];
             String contrasena_apr = params[1];
             String urlString_apr = "http://192.168.1.227/validacuenta.php";
@@ -87,16 +86,27 @@ public class WebServiceHandler {
                     resultado_apr = null;
                 }
 
+                // Crear un array para guardar el resultado, el usuario y la contraseña
+                String[] resultadoYDatos = new String[3];
+                resultadoYDatos[0] = resultado_apr; // Resultado de la validación
+                resultadoYDatos[1] = usuario_apr;    // Nombre de usuario
+                resultadoYDatos[2] = contrasena_apr;  // Contraseña
+
+                return resultadoYDatos; // Devuelve el array
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return resultado_apr;
+            return null; // Devuelve null si hay un error
         }
 
-        //@Override
-        protected void onPostExecute(String resultado, String usuario_apr, String contrasena_apr) {
+        @Override
+        protected void onPostExecute(String[] resultadoYDatos) {
+            if (resultadoYDatos != null) {
+                String resultado = resultadoYDatos[0]; // Resultado de la validación
+                String usuario_apr = resultadoYDatos[1]; // Nombre de usuario
+                String contrasena_apr = resultadoYDatos[2]; // Contraseña
 
-            if (resultado != null) {
                 // Verifica el resultado y realiza las acciones necesarias
                 if (resultado.equals("ok")) {
                     // El resultado es "ok", abre la segunda actividad
@@ -106,16 +116,9 @@ public class WebServiceHandler {
                     // El resultado es "ko", realiza otra acción
                     Toast.makeText(activity_apr, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
-                    // obtener usuario y contraseña introducidos
-                    String usuario = usuario_apr;
-                    String contrasena = contrasena_apr;
 
                     // Insertar registro en la base de datos
-                    sqLiteHandler.insertarRegistro(usuario, contrasena);
-
-
-
-
+                    sqLiteHandler.insertarRegistro(usuario_apr, contrasena_apr);
                 }
             } else {
                 // El resultado es null, hubo un error en la petición
