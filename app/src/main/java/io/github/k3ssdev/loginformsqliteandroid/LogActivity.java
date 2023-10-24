@@ -1,7 +1,6 @@
 package io.github.k3ssdev.loginformsqliteandroid;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LogActivity extends AppCompatActivity {
@@ -35,37 +33,25 @@ public class LogActivity extends AppCompatActivity {
         finish(); // Cierra la actividad actual
     }
 
-    private class ConsultarLogin extends AsyncTask<Void, Void, List<String>> {
+    private class ConsultarLogin extends AsyncTask<Void, Void, List<Login>> {
         @Override
-        protected List<String> doInBackground(Void... voids) {
+        protected List<Login> doInBackground(Void... voids) {
             // Obtiene los registros de SQLite llamando al método consultarRegistros
             SQLiteHandler sqLiteHandler = new SQLiteHandler(LogActivity.this);
-            Cursor cursor = sqLiteHandler.consultarRegistros();
+            List<Login> registros = sqLiteHandler.consultarRegistros();
+            // Ordena los registros por fecha de forma descendente usando el campo timestamp
 
-            List<String> registros = new ArrayList<>();
 
-            while (cursor.moveToNext()) {
-                String timestamp = cursor.getString(cursor.getColumnIndex("timestamp"));
-                String usuario = cursor.getString(cursor.getColumnIndex("usuario"));
-                String contrasena = cursor.getString(cursor.getColumnIndex("contrasena"));
-
-                // Aquí puedes construir el formato de registro que desees
-                String registro = "Timestamp: " + timestamp + ", Usuario: " + usuario + ", Contraseña: " + contrasena;
-                registros.add(registro);
-            }
-
-            cursor.close();
-            sqLiteHandler.cerrarBaseDeDatos();
 
             return registros;
+
         }
 
         @Override
-        protected void onPostExecute(List<String> registros) {
+    protected void onPostExecute(List<Login> registros) {
             if (registros != null) {
-                // Crea un adaptador personalizado para tu lista de registros
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(LogActivity.this, android.R.layout.simple_list_item_1, registros);
-
+                // Crea un adaptador personalizado para tu lista de usuarios
+                LoginAdapter adapter = new LoginAdapter(LogActivity.this, registros);
                 // Asigna el adaptador al ListView
                 listView_apr.setAdapter(adapter);
             }

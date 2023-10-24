@@ -1,9 +1,9 @@
 package io.github.k3ssdev.loginformsqliteandroid;
 
 public class Login {
-private String usuario;
-    private String contrasena;
-    private String timestamp;
+private final String usuario;
+    private final String contrasena;
+    private final String timestamp;
 
     public Login(String usuario, String contrasena, String timestamp) {
         this.usuario = usuario;
@@ -23,12 +23,4 @@ private String usuario;
         return timestamp;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "usuario='" + usuario + '\'' +
-                ", contrasena='" + contrasena + '\'' +
-                ", timestamp='" + timestamp + '\'' +
-                '}';
-    }
 }
