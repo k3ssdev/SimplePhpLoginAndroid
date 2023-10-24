@@ -9,6 +9,7 @@ import java.util.Date;
 
 public class SQLiteHandler {
 
+    // Constantes para la base de datos
     private static final String databaseName_apr = "AppLog.db";
     private static final String tableName_apr = "login";
 
@@ -45,7 +46,7 @@ public class SQLiteHandler {
     public Cursor consultarRegistros() {
         // Consulta los registros
         String[] columnas = {"id", "timestamp", "ip", "usuario", "contrasena"};
-        return db.query(tableName_apr, columnas, null, null, null, null, null);
+        return db.query(tableName_apr, columnas, null, null, null, null, "id DESC");
     }
 
     // Elimina todos los registros de la tabla
