@@ -16,7 +16,7 @@ public class SQLiteHandler {
     private static final String databaseName_apr = "AppLog.db";
     private static final String tableName_apr = "login";
 
-    private SQLiteDatabase db;
+    private final SQLiteDatabase db;
 
     // Constructor
     public SQLiteHandler(Context context) {
@@ -68,13 +68,13 @@ public class SQLiteHandler {
         return registros;
     }
 
-    // Elimina todos los registros de la tabla
+    /** @noinspection unused*/ // Elimina todos los registros de la tabla
     public void eliminarRegistros() {
         // Elimina los registros
         db.delete(tableName_apr, null, null);
     }
 
-    // Cierra la base de datos
+    /** @noinspection unused*/ // Cierra la base de datos
     public void cerrarBaseDeDatos() {
         db.close();
     }
