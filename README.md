@@ -39,19 +39,33 @@ La aplicación consta de dos actividades:
 <img src="Extra/Screenshot_4.png" alt="Picture" height="600" />
 </p>
 
+
+
 ## Archivos del Proyecto
 
-- `ActividadExitosa.java`: Clase que representa la actividad que se muestra después de un inicio de sesión exitoso. Contiene la lógica para mostrar la lista de usuarios y un botón de regreso.
+1. `MainActivity.java`: Clase que representa la actividad principal de la aplicación, donde se encuentra el formulario de inicio de sesión y la lógica para validar las credenciales.
 
-- `MainActivity.java`: Clase que representa la actividad principal de la aplicación, donde se encuentra el formulario de inicio de sesión y la lógica para validar las credenciales.
+2. `Login.java`: Clase POJO de objetos tipo login para rellenar la tabla de registro de sesiones fallidas en SQLite.
 
-- `Usuario.java`: Clase que define la estructura de un objeto de usuario, con propiedades como nombre de usuario, contraseña y fecha de nacimiento.
+3. `LoginAdapter.java`: Un adaptador personalizado para mostrar los objetos de tipo login en el listview.
 
-- `UsuarioAdapter.java`: Un adaptador personalizado que se utiliza para mostrar la lista de usuarios en la actividad `ActividadExitosa`.
+4. `LogActivity.java`: Clase que gestiona el registro de login fallido en SQLite.
 
-- `WebServiceHandler.java`: Clase que maneja las solicitudes y respuestas a un servidor web externo, incluida la consulta de usuarios.
+5. `User.java`: Clase POJO de objetos tipo User para representar los datos de la tabla de Mysql.
 
-- `XMLParser.java`: Clase que se utiliza para analizar documentos XML, en este caso, se usa para analizar las respuestas del servidor web.
+6. `UserAdapter.java`: Un adaptador personalizado que se utiliza para mostrar la lista de usuarios en la actividad `SecondActivity`.
+
+7. `SecondActivity.java`: Clase que representa una segunda actividad en la aplicación.
+
+8. `SQLiteHandler.java`: Clase que se utiliza para manejar la base de datos SQLite en la aplicación.
+
+9. `WebServiceHandler.java`: Clase que maneja las solicitudes y respuestas al servidor web externo con los conectores PHP, incluida la consulta de usuarios.
+
+11. `XMLParser.java`: Clase que se utiliza para analizar documentos XML, en este caso, se usa para analizar las respuestas del servidor web.
+
+
+Además se incluyen los conectores PHP y los comandos SQL para la base de datos y la tabla necesaria para el ejemplo, se encuentran en la carpeta `Extra`.
+
 
 ## Configuración
 
@@ -71,4 +85,4 @@ Para ejecutar la aplicación de demostración:
 Este proyecto se distribuye bajo la licencia [MIT](LICENSE).
 
 ---
-**Nota**: Asegúrate de modificar las rutas y las URL del servidor web en la sección de "Configuración" según tus necesidades específicas.
+**Nota**: Asegúrate de modificar las rutas y las URL del servidor web en la sección de "Configuración" según sea necesario.
