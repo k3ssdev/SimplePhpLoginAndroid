@@ -3,21 +3,25 @@
 A continuación se detallan los casos de prueba para la aplicación "Simple Login Android" que realiza un inicio de sesión contra una base de datos MySQL utilizando conectores PHP.
 
 ## Caso de Prueba 1
-**Descripción del Test Case:** PHP conector validacuenta.php
-**Entrada:** Usuario: "test", Contraseña: "test1234"
-**Acción/Evento:** Realizar una solicitud POST a validacuenta.php
-**Salida Esperada:** Validación de las credenciales en formato XML:
+- **Descripción del Test Case:** PHP conector validacuenta.php
+- **Entrada:** Usuario: "test", Contraseña: "test1234"
+- **Acción/Evento:** Realizar una solicitud POST a validacuenta.php
+- **Salida Esperada:** Validación de las credenciales en formato XML:
+
 ```xml
 <respuesta>
     <estado>ko</estado>
 </respuesta>
 ```
 
+![Test case 1](test_case_1.png)
+
 ## Caso de Prueba 2
-**Descripción del Test Case:** PHP conector consultausuarios.php
-**Entrada:** ---
-**Acción/Evento:** Llamar a consultausuarios.php
-**Salida Esperada:** Lista de usuarios en formato XML:
+- **Descripción del Test Case:** PHP conector consultausuarios.php
+- **Entrada:** ---
+- **Acción/Evento:** Llamar a consultausuarios.php
+- **Salida Esperada:** Lista de usuarios en formato XML:
+
 ```xml
 <respuesta>
     <usuario>
@@ -32,42 +36,55 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
     </usuario>
 </respuesta>
 ```
+![Test case 1](test_case_2.png)
 
 ## Caso de Prueba 3
-**Descripción del Test Case:** Campos vacíos
-**Entrada:** Usuario: "", Contraseña: ""
-**Acción/Evento:** Intentar iniciar sesión
-**Salida Esperada:** Alerta de que los campos no pueden estar vacíos
+- **Descripción del Test Case:** Campos vacíos
+- **Entrada:** Usuario: "", Contraseña: ""
+- **Acción/Evento:** Intentar iniciar sesión
+- **Salida Esperada:** Alerta de que los campos no pueden estar vacíos
+
+![Test case 1](test_case_3.png)
 
 ## Caso de Prueba 4
-**Descripción del Test Case:** Nombre de cuenta solo letras y números
-**Entrada:** Usuario: "@test#", Contraseña: "test1234"
-**Acción/Evento:** Intentar iniciar sesión
-**Salida Esperada:** Alerta de que solo se permiten letras y números en el nombre de cuenta
+- **Descripción del Test Case:** Nombre de cuenta solo letras y números
+- **Entrada:** Usuario: "@test#", Contraseña: "test1234"
+- **Acción/Evento:** Intentar iniciar sesión
+- **Salida Esperada:** Alerta de que solo se permiten letras y números en el nombre de cuenta
+
+![Test case 1](test_case_4.png)
 
 ## Caso de Prueba 5
-**Descripción del Test Case:** Contraseña longitud válida
-**Entrada:** Usuario: "test", Contraseña: "test"
-**Acción/Evento:** Intentar iniciar sesión
-**Salida Esperada:** Alerta de que la contraseña es demasiado corta
+- **Descripción del Test Case:** Contraseña longitud válida
+- **Entrada:** Usuario: "test", Contraseña: "test"
+- **Acción/Evento:** Intentar iniciar sesión
+- **Salida Esperada:** Alerta de que la contraseña es demasiado corta
+
+![Test case 1](test_case_5.png)
 
 ## Caso de Prueba 6
-**Descripción del Test Case:** Contraseña longitud inválida
-**Entrada:** Usuario: "test", Contraseña: "test123456789"
-**Acción/Evento:** Intentar iniciar sesión
-**Salida Esperada:** Alerta de que la contraseña es demasiado larga
+- **Descripción del Test Case:** Contraseña longitud inválida
+- **Entrada:** Usuario: "test", Contraseña: "test123456789"
+- **Acción/Evento:** Intentar iniciar sesión
+- **Salida Esperada:** Alerta de que la contraseña es demasiado larga
+
+![Test case 1](test_case_6.png)
 
 ## Caso de Prueba 7
-**Descripción del Test Case:** Validación incorrecta
-**Entrada:** Usuario: "test", Contraseña: "wrongpass"
-**Acción/Evento:** Intentar iniciar sesión
-**Salida Esperada:** Nueva actividad mostrando lista de intentos fallidos con fecha y hora, botón para la pantalla inicial
+- **Descripción del Test Case:** Validación incorrecta
+- **Entrada:** Usuario: "test", Contraseña: "wrongpass"
+- **Acción/Evento:** Intentar iniciar sesión
+- **Salida Esperada:** Nueva actividad mostrando lista de intentos fallidos con fecha y hora, botón para la pantalla inicial
+
+![Test case 1](test_case_7.png)
 
 ## Caso de Prueba 8
-**Descripción del Test Case:** Fallo de conexión a BBDD externa
-**Entrada:** ---
-**Acción/Evento:** Iniciar la aplicación
-**Salida Esperada:** Mensaje de error indicando la falta de conexión a la base de datos externa
+- **Descripción del Test Case:** Fallo de conexión a BBDD externa
+- **Entrada:** ---
+- **Acción/Evento:** Iniciar la aplicación
+- **Salida Esperada:** Mensaje de error indicando la falta de conexión a la base de datos externa
+
+![Test case 1](test_case_8.png)
 
 ## Resumen
 
