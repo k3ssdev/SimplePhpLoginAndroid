@@ -1,12 +1,12 @@
 # Casos de Prueba - Simple Login Android
 
-A continuación se detallan los casos de prueba para la aplicación "Simple Login Android" que realiza un inicio de sesión contra una base de datos MySQL utilizando conectores PHP.
+A continuación se detallan los casos de prueba para la aplicación de Android "Simple Login Android", que realiza un inicio de sesión contra una base de datos MySQL utilizando conectores PHP.
 
 ## Caso de Prueba 1
 - **Descripción del Test Case:** PHP conector validacuenta.php
 - **Entrada:** Usuario: "test", Contraseña: "test1234"
 - **Acción/Evento:** Realizar una solicitud POST a validacuenta.php
-- **Salida Esperada:** Validación de las credenciales en formato XML:
+- **Salida Esperada:** Validación de las cr edenciales en formato XML:
 
 ```xml
 <respuesta>
@@ -15,7 +15,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 ```
 
 <p align="center">
-    <img src="test_case_1.png" alt="Test Case 1" height="800" />
+    <img src="test_case_1.png" alt="Test Case 1" height="600" />
 </p>
 
 
@@ -41,7 +41,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 </respuesta>
 ```
 <p align="center">
-    <img src="test_case_2.png" alt="Test Case 2" height="800" />
+    <img src="test_case_2.png" alt="Test Case 2" height="600" />
 </p>
 
 
@@ -52,7 +52,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Alerta de que los campos no pueden estar vacíos
 
 <p align="center">
-    <img src="test_case_3.png" alt="Test Case 3" height="800" />
+    <img src="test_case_3.png" alt="Test Case 3" height="600" />
 </p>
 
 ## Caso de Prueba 4
@@ -62,7 +62,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Alerta de que solo se permiten letras y números en el nombre de cuenta
 
 <p align="center">
-    <img src="test_case_4.png" alt="Test Case 4" height="800" />
+    <img src="test_case_4.png" alt="Test Case 4" height="600" />
 </p>
 
 ## Caso de Prueba 5
@@ -72,7 +72,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Alerta de que la contraseña es demasiado corta
 
 <p align="center">
-    <img src="test_case_5.png" alt="Test Case 5" height="800" />
+    <img src="test_case_5.png" alt="Test Case 5" height="600" />
 </p>
 
 ## Caso de Prueba 6
@@ -82,7 +82,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Alerta de que la contraseña es demasiado larga
 
 <p align="center">
-    <img src="test_case_6.png" alt="Test Case 6" height="800" />
+    <img src="test_case_6.png" alt="Test Case 6" height="600" />
 </p>
 
 ## Caso de Prueba 7
@@ -92,7 +92,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Nueva actividad mostrando lista de intentos fallidos con fecha y hora, botón para la pantalla inicial
 
 <p align="center">
-    <img src="test_case_7.png" alt="Test Case 7" height="800" />
+    <img src="test_case_7.png" alt="Test Case 7" height="600" />
 </p>
 
 ## Caso de Prueba 8
@@ -102,7 +102,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Salida Esperada:** Mensaje de error indicando la falta de conexión a la base de datos externa
 
 <p align="center">
-    <img src="test_case_8.png" alt="Test Case 8" height="800" />
+    <img src="test_case_8.png" alt="Test Case 8" height="600" />
 </p>
 
 ## Resumen
@@ -121,4 +121,7 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 | 7              | Validación incorrecta                              | Usuario: "test", Contraseña: "wrongpass"  | Intentar iniciar sesión             | Nueva actividad mostrando lista de intentos fallidos con fecha y hora, botón para la pantalla inicial |
 | 8              | Fallo de conexión a BBDD externa                    | ---                                    | Iniciar la aplicación                 | Mensaje de error indicando la falta de conexión                                |
 
+----
 
+### Revisado por
+Alberto Pérez del Río
