@@ -13,16 +13,16 @@ public class XMLParser {
     public static Document convertStringToXMLDocument(String xmlString_apr) {
         try {
             // Crea una fábrica de documentos XML
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilderFactory factory_apr = DocumentBuilderFactory.newInstance();
 
             // Crea un constructor de documentos
-            DocumentBuilder builder = factory.newDocumentBuilder();
+            DocumentBuilder builder = factory_apr.newDocumentBuilder();
 
             // Crea una fuente de entrada a partir de la cadena XML
-            InputSource inputSource = new InputSource(new StringReader(xmlString_apr));
+            InputSource inputSource_apr = new InputSource(new StringReader(xmlString_apr));
 
             // Parsea la cadena XML y la convierte en un objeto Document
-            return builder.parse(inputSource);
+            return builder.parse(inputSource_apr);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

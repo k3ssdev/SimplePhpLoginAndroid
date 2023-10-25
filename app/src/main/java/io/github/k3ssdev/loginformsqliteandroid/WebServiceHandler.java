@@ -22,13 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 public class WebServiceHandler {
     private Activity activity_apr;
-    // Genera un token único en tu aplicación
+    // Token para la cabecera de la solicitud
     //String token = "oPGP8M*jmePkYRnmnxU2v%TgJ&V9r4VfZv6q&LLe%q!c#3U84KWi5x9K9m";
 
     public WebServiceHandler(Activity activity) {
         this.activity_apr = activity;
     }
-
 
     public class ValidarUsuario extends AsyncTask<String, Void, String[]> {
         @Override
@@ -36,44 +35,43 @@ public class WebServiceHandler {
             String usuario_apr = params[0];
             String contrasena_apr = params[1];
             String urlString_apr = "http://10.0.2.2/validacuenta.php"; // localhost para el emulador
-            //"http://192.168.1.227/validacuenta.php";
 
             String resultado_apr = null;
 
             try {
                 // Crear la conexión HTTP
-                URL url = new URL(urlString_apr);
-                HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-                conexion.setRequestMethod("POST");
-                conexion.setDoOutput(true);
+                URL url_apr = new URL(urlString_apr);
+                HttpURLConnection conexion_apr = (HttpURLConnection) url_apr.openConnection();
+                conexion_apr.setRequestMethod("POST");
+                conexion_apr.setDoOutput(true);
 
                 // Agrega el token como cabecera a la solicitud, COMENTAR ESTA LÍNEA PARA PROBAR LA APP EN SERVER PROPIO
                 //conexion.setRequestProperty("Authorization", "Bearer " + token);
 
                 // Crear los datos del formulario
-                String datos = "usuario=" + URLEncoder.encode(usuario_apr, "UTF-8") + "&contrasena=" + URLEncoder.encode(contrasena_apr, "UTF-8");
+                String datos_apr = "usuario=" + URLEncoder.encode(usuario_apr, "UTF-8") + "&contrasena=" + URLEncoder.encode(contrasena_apr, "UTF-8");
 
                 // Escribir los datos en el cuerpo de la petición
-                OutputStream outputStream = conexion.getOutputStream();
-                outputStream.write(datos.getBytes(StandardCharsets.UTF_8));
-                outputStream.flush();
-                outputStream.close();
+                OutputStream outputStream_apr = conexion_apr.getOutputStream();
+                outputStream_apr.write(datos_apr.getBytes(StandardCharsets.UTF_8));
+                outputStream_apr.flush();
+                outputStream_apr.close();
 
                 // Leer la respuesta del servidor
-                InputStream entrada = conexion.getInputStream();
-                BufferedReader lector = new BufferedReader(new InputStreamReader(entrada));
-                StringBuilder respuesta = new StringBuilder();
+                InputStream entrada_apr = conexion_apr.getInputStream();
+                BufferedReader lector_apr = new BufferedReader(new InputStreamReader(entrada_apr));
+                StringBuilder respuesta_apr = new StringBuilder();
                 String linea;
-                while ((linea = lector.readLine()) != null) {
-                    respuesta.append(linea);
+                while ((linea = lector_apr.readLine()) != null) {
+                    respuesta_apr.append(linea);
                 }
 
                 // Cerrar la conexión HTTP
-                entrada.close();
-                conexion.disconnect();
+                entrada_apr.close();
+                conexion_apr.disconnect();
 
                 // Procesar la respuesta del servidor
-                resultado_apr = respuesta.toString();
+                resultado_apr = respuesta_apr.toString();
 
                 // Parsear la respuesta XML
                 Document document = XMLParser.convertStringToXMLDocument(resultado_apr);
@@ -81,8 +79,8 @@ public class WebServiceHandler {
                 // Obtener el contenido del elemento "estado"
                 NodeList estadoNodes = document.getElementsByTagName("estado");
                 if (estadoNodes.getLength() > 0) {
-                    Node estadoNode = estadoNodes.item(0);
-                    String estado_apr = estadoNode.getTextContent();
+                    Node estadoNode_apr = estadoNodes.item(0);
+                    String estado_apr = estadoNode_apr.getTextContent();
 
                     // Asignar el resultado a la variable resultado_apr
                     resultado_apr = estado_apr;
@@ -92,12 +90,12 @@ public class WebServiceHandler {
                 }
 
                 // Crear un array para guardar el resultado, el usuario y la contraseña
-                String[] resultadoYDatos = new String[3];
-                resultadoYDatos[0] = resultado_apr; // Resultado de la validación
-                resultadoYDatos[1] = usuario_apr;    // Nombre de usuario
-                resultadoYDatos[2] = contrasena_apr;  // Contraseña
+                String[] resultadoYDatos_apr = new String[3];
+                resultadoYDatos_apr[0] = resultado_apr; // Resultado de la validación
+                resultadoYDatos_apr[1] = usuario_apr;    // Nombre de usuario
+                resultadoYDatos_apr[2] = contrasena_apr;  // Contraseña
 
-                return resultadoYDatos; // Devuelve el array
+                return resultadoYDatos_apr; // Devuelve el array
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -108,26 +106,26 @@ public class WebServiceHandler {
         @Override
         protected void onPostExecute(String[] resultadoYDatos) {
             if (resultadoYDatos != null) {
-                String resultado = resultadoYDatos[0]; // Resultado de la validación
+                String resultado_apr = resultadoYDatos[0]; // Resultado de la validación
                 String usuario_apr = resultadoYDatos[1]; // Nombre de usuario
                 String contrasena_apr = resultadoYDatos[2]; // Contraseña
 
                 // Verifica el resultado y realiza las acciones necesarias
-                if (resultado.equals("ok")) {
+                if (resultado_apr.equals("ok")) {
                     // El resultado es "ok", abre la segunda actividad
                     Intent intent = new Intent(activity_apr, SecondActivity.class);
                     activity_apr.startActivity(intent);
-                } else if (resultado.equals("ko")) {
+                } else if (resultado_apr.equals("ko")) {
                     // El resultado es "ko", realiza otra acción
                     Toast.makeText(activity_apr, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                    SQLiteHandler sqLiteHandler = new SQLiteHandler(activity_apr);
+                    SQLiteHandler sqLiteHandler_apr = new SQLiteHandler(activity_apr);
 
                     // Insertar registro en la base de datos
-                    sqLiteHandler.insertarRegistro(usuario_apr, contrasena_apr);
+                    sqLiteHandler_apr.insertarRegistro(usuario_apr, contrasena_apr);
 
                     // Abrir LogActivity
-                    Intent intent = new Intent(activity_apr, LogActivity.class);
-                    activity_apr.startActivity(intent);
+                    Intent intent_apr = new Intent(activity_apr, LogActivity.class);
+                    activity_apr.startActivity(intent_apr);
                 }
             } else {
                 // El resultado es null, hubo un error en la petición
@@ -138,49 +136,49 @@ public class WebServiceHandler {
 
     public List<User> consultarUsuarios() {
         String urlString_apr = "http://10.0.2.2/consultarusuarios.php";
-                //"http://192.168.1.227/consultarusuarios.php";
+
         List<User> usuarios_apr = new ArrayList<>();
 
 
         try {
             // Crear la conexión HTTP
-            URL url = new URL(urlString_apr);
-            HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-            conexion.setRequestMethod("GET");
+            URL url_apr = new URL(urlString_apr);
+            HttpURLConnection conexion_apr = (HttpURLConnection) url_apr.openConnection();
+            conexion_apr.setRequestMethod("GET");
 
             // Agrega el token como cabecera a la solicitud, COMENTAR ESTA LÍNEA PARA PROBAR LA APP EN SERVER PROPIO
             //conexion.setRequestProperty("Authorization", "Bearer " + token);
 
             // Leer la respuesta del servidor
-            InputStream entrada = conexion.getInputStream();
-            BufferedReader lector = new BufferedReader(new InputStreamReader(entrada));
-            StringBuilder respuesta = new StringBuilder();
+            InputStream entrada_apr = conexion_apr.getInputStream();
+            BufferedReader lector_apr = new BufferedReader(new InputStreamReader(entrada_apr));
+            StringBuilder respuesta_apr = new StringBuilder();
             String linea;
 
-            while ((linea = lector.readLine()) != null) {
-                respuesta.append(linea);
+            while ((linea = lector_apr.readLine()) != null) {
+                respuesta_apr.append(linea);
             }
 
             // Cerrar la conexión HTTP
-            entrada.close();
-            conexion.disconnect();
+            entrada_apr.close();
+            conexion_apr.disconnect();
 
             // Procesar la respuesta XML
-            String xmlString = respuesta.toString();
-            Document document = XMLParser.convertStringToXMLDocument(xmlString);
-            NodeList usuarioNodes = document.getElementsByTagName("usuario");
+            String xmlString_apr = respuesta_apr.toString();
+            Document document_apr = XMLParser.convertStringToXMLDocument(xmlString_apr);
+            NodeList usuarioNodes_apr = document_apr.getElementsByTagName("usuario");
 
-            for (int i = 0; i < usuarioNodes.getLength(); i++) {
-                Node usuarioNode = usuarioNodes.item(i);
-                if (usuarioNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element usuarioElement = (Element) usuarioNode;
+            for (int i = 0; i < usuarioNodes_apr.getLength(); i++) {
+                Node usuarioNode_apr = usuarioNodes_apr.item(i);
+                if (usuarioNode_apr.getNodeType() == Node.ELEMENT_NODE) {
+                    Element usuarioElement = (Element) usuarioNode_apr;
 
                     String nombreUsuario_apr = usuarioElement.getElementsByTagName("nombreUsuario").item(0).getTextContent();
                     String contrasena_apr = usuarioElement.getElementsByTagName("contrasena").item(0).getTextContent();
                     String fechaNacimiento_apr = usuarioElement.getElementsByTagName("fecha_nacimiento").item(0).getTextContent();
 
-                    User usuario = new User(nombreUsuario_apr, contrasena_apr, fechaNacimiento_apr);
-                    usuarios_apr.add(usuario);
+                    User usuario_apr = new User(nombreUsuario_apr, contrasena_apr, fechaNacimiento_apr);
+                    usuarios_apr.add(usuario_apr);
                 }
             }
         } catch (Exception e) {

@@ -26,8 +26,8 @@ public class SecondActivity extends AppCompatActivity {
 
     public void exit(View view) {
         // Crea un Intent para volver al MainActivity
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        Intent intent_apr = new Intent(this, MainActivity.class);
+        startActivity(intent_apr);
         finish(); // Cierra la actividad actual
     }
 
@@ -45,10 +45,10 @@ public class SecondActivity extends AppCompatActivity {
         protected void onPostExecute(List<User> usuarios) {
             if (usuarios != null) {
                 // Crea un adaptador personalizado para tu lista de usuarios
-                UserAdapter adapter = new UserAdapter(SecondActivity.this, usuarios);
+                UserAdapter adapter_apr = new UserAdapter(SecondActivity.this, usuarios);
 
                 // Asigna el adaptador al ListView
-                listView_apr.setAdapter(adapter);
+                listView_apr.setAdapter(adapter_apr);
             }
         }
     }

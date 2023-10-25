@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+// Actividad para mostrar los registros de la tabla SQLite
 public class LogActivity extends AppCompatActivity {
     private ListView listView_apr;
 
@@ -37,23 +38,19 @@ public class LogActivity extends AppCompatActivity {
         @Override
         protected List<Login> doInBackground(Void... voids) {
             // Obtiene los registros de SQLite llamando al método consultarRegistros
-            SQLiteHandler sqLiteHandler = new SQLiteHandler(LogActivity.this);
-            List<Login> registros = sqLiteHandler.consultarRegistros();
-            // Ordena los registros por fecha de forma descendente usando el campo timestamp
+            SQLiteHandler sqLiteHandler_apr = new SQLiteHandler(LogActivity.this);
+            List<Login> registros_apr = sqLiteHandler_apr.consultarRegistros();
 
-
-
-            return registros;
-
+            return registros_apr;
         }
 
         @Override
     protected void onPostExecute(List<Login> registros) {
             if (registros != null) {
                 // Crea un adaptador personalizado para tu lista de usuarios
-                LoginAdapter adapter = new LoginAdapter(LogActivity.this, registros);
+                LoginAdapter adapter_apr = new LoginAdapter(LogActivity.this, registros);
                 // Asigna el adaptador al ListView
-                listView_apr.setAdapter(adapter);
+                listView_apr.setAdapter(adapter_apr);
             }
         }
     }

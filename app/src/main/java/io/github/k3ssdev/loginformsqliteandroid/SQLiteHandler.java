@@ -30,8 +30,8 @@ public class SQLiteHandler {
     // Inserta un registro en la tabla con la marca de tiempo actual
     public void insertarRegistro(String usuario, String contrasena) {
         // Obtener la marca de tiempo actual
-        Date date = new Date();
-        Timestamp timestamp = new Timestamp(date.getTime());
+        Date date_apr = new Date();
+        Timestamp timestamp = new Timestamp(date_apr.getTime());
 
         // Crea el registro
         ContentValues values = new ContentValues();
@@ -46,7 +46,7 @@ public class SQLiteHandler {
     // Consulta los registros de la tabla
     public List<Login> consultarRegistros() {
         // Consulta los registros
-        List<Login> registros = new ArrayList<>();
+        List<Login> registros_apr = new ArrayList<>();
         Cursor cursor = db_apr.query(tableName_apr, null, null, null, null, null, "timestamp DESC");
 
         // Recorre los registros
@@ -57,14 +57,14 @@ public class SQLiteHandler {
 
             // Crea un objeto Login y lo añade a la lista
             Login registro = new Login(timestamp, usuario, contrasena);
-            registros.add(registro);
+            registros_apr.add(registro);
         }
 
         // Cierra el cursor
         cursor.close();
 
         // Devuelve la lista de registros
-        return registros;
+        return registros_apr;
     }
 
     /** @noinspection unused*/ // Elimina todos los registros de la tabla

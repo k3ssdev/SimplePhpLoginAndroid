@@ -41,29 +41,30 @@ public class LoginAdapter extends BaseAdapter {
     }
 
     // Obtiene la vista que muestra un elemento de la lista
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams") // No se usa el padre de la vista, por eso se pasa null
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            // Infla la vista si es nula
-            LayoutInflater inflater = (LayoutInflater) context_apr.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_usuario, null);
+    public View getView(int position, View convertView_apr, ViewGroup parent) {
+        if (convertView_apr == null) {
+            // Infla la vista si es nula, crea una instancia de una vista a partir del diseño XML
+            LayoutInflater inflater_apr = (LayoutInflater) context_apr.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            // Obtiene la vista del elemento de la lista
+            convertView_apr = inflater_apr.inflate(R.layout.item_usuario, null);
         }
 
         // Obtiene las referencias a los elementos de diseño en item_usuario.xml
-        TextView nombreUsuarioTextView_apr = convertView.findViewById(R.id.nombreUsuarioTextView);
-        TextView contrasenaTextView_apr = convertView.findViewById(R.id.contrasenaTextView);
-        TextView fechaNacimientoTextView_apr = convertView.findViewById(R.id.fechaNacimientoTextView);
+        TextView nombreUsuarioTextView_apr = convertView_apr.findViewById(R.id.nombreUsuarioTextView);
+        TextView contrasenaTextView_apr = convertView_apr.findViewById(R.id.contrasenaTextView);
+        TextView fechaNacimientoTextView_apr = convertView_apr.findViewById(R.id.fechaNacimientoTextView);
 
         // Obtiene el usuario en la posición actual
-        Login login = rows_apr.get(position);
+        Login login_apr = rows_apr.get(position);
 
         // Establece los datos en los elementos de diseño
-        nombreUsuarioTextView_apr.setText(login.getUsuario());
-        contrasenaTextView_apr.setText(login.getContrasena());
-        fechaNacimientoTextView_apr.setText(login.getTimestamp());
+        nombreUsuarioTextView_apr.setText(login_apr.getUsuario());
+        contrasenaTextView_apr.setText(login_apr.getContrasena());
+        fechaNacimientoTextView_apr.setText(login_apr.getTimestamp());
 
-        return convertView;
+        return convertView_apr;
     }
 }
 

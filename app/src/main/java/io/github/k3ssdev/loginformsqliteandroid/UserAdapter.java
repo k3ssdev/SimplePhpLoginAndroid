@@ -45,8 +45,8 @@ public class UserAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             // Infla la vista si es nula
-            LayoutInflater inflater = (LayoutInflater) context_apr.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_usuario, null);
+            LayoutInflater inflater_apr = (LayoutInflater) context_apr.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater_apr.inflate(R.layout.item_usuario, null);
         }
 
         // Obtiene las referencias a los elementos de diseño en item_usuario.xml
@@ -55,12 +55,12 @@ public class UserAdapter extends BaseAdapter {
         TextView fechaNacimientoTextView_apr = convertView.findViewById(R.id.fechaNacimientoTextView);
 
         // Obtiene el usuario en la posición actual
-        User usuario = usuarios_apr.get(position);
+        User usuario_apr = usuarios_apr.get(position);
 
         // Establece los datos en los elementos de diseño
-        nombreUsuarioTextView_apr.setText(usuario.getNombreUsuario());
-        contrasenaTextView_apr.setText(usuario.getContrasena());
-        fechaNacimientoTextView_apr.setText(usuario.getFechaNacimiento());
+        nombreUsuarioTextView_apr.setText(usuario_apr.getNombreUsuario());
+        contrasenaTextView_apr.setText(usuario_apr.getContrasena());
+        fechaNacimientoTextView_apr.setText(usuario_apr.getFechaNacimiento());
 
         return convertView;
     }

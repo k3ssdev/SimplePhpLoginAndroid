@@ -22,16 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Configura un escuchador de clic para el botón de inicio de sesión
         buttonLogin_apr.setOnClickListener(v -> {
-            String usuario = editTextUsername_apr.getText().toString();
-            String contrasena = editTextPassword_apr.getText().toString();
+            String usuario_apr = editTextUsername_apr.getText().toString();
+            String contrasena_apr = editTextPassword_apr.getText().toString();
 
             // Valida que usuario y contraseña no estén vacíos
-            if (usuario.isEmpty() || contrasena.isEmpty()) {
+            if (usuario_apr.isEmpty() || contrasena_apr.isEmpty()) {
                 // Comprueba que campo esté vacío y muestra un mensaje de error
-                if (usuario.isEmpty()) {
+                if (usuario_apr.isEmpty()) {
                     editTextUsername_apr.setError("El usuario no puede estar vacío");
                 }
-                if (contrasena.isEmpty()) {
+                if (contrasena_apr.isEmpty()) {
                     editTextPassword_apr.setError("La contraseña no puede estar vacía");
                 }
                 // Muestra un mensaje toast
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Valida que usuario solo use letras y números
-            if (!usuario.matches("[A-Za-z0-9]+")) {
+            if (!usuario_apr.matches("[A-Za-z0-9]+")) {
                 // Muestra un mensaje de error
                 editTextUsername_apr.setError("El usuario solo puede contener letras y números");
                 // Muestra un mensaje toast
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Valida que usuario tenga entre 4 y 8 caracteres
-            if (contrasena.length() < 4 || contrasena.length() > 8) {
+            if (contrasena_apr.length() < 4 || contrasena_apr.length() > 8) {
                 // Muestra un mensaje de error
                 editTextPassword_apr.setError("La contraseña debe tener entre 4 y 8 caracteres");
                 // Muestra un mensaje toast
@@ -58,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Crea una instancia de WebServiceHandler
-            WebServiceHandler webServiceHandler = new WebServiceHandler(this);
+            WebServiceHandler webServiceHandler_apr = new WebServiceHandler(this);
 
             // Llama a la tarea ValidarUsuario con execute
-            webServiceHandler.new ValidarUsuario().execute(usuario, contrasena);
+            webServiceHandler_apr.new ValidarUsuario().execute(usuario_apr, contrasena_apr);
         });
     }
 }

@@ -116,11 +116,12 @@
         android:id="@+id/imageView4"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontalTop"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEnd"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStart"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/glider"
+        app:srcCompat="@mipmap/ic_launcher_round"
         android:contentDescription="@string/img" />
 
     <TextView

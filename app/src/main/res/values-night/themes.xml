@@ -1,7 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.LoginFormSQLiteAndroid" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base application theme for dark mode. -->
+    <style name="Base.Theme.LoginFormSQLiteAndroid.Dark" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorLightBlue</item>
     </style>
+
+    <style name="Theme.LoginFormSQLiteAndroid.Dark" parent="Base.Theme.LoginFormSQLiteAndroid.Dark" />
 </resources>
