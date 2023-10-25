@@ -18,6 +18,7 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
     <img src="test_case_1.png" alt="Test Case 1" height="600" />
 </p>
 
+<div class="page"/>
 
 
 ## Caso de Prueba 2
@@ -44,6 +45,7 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
     <img src="test_case_2.png" alt="Test Case 2" height="600" />
 </p>
 
+<div class="page"/>
 
 ## Caso de Prueba 3
 - **Descripción del Test Case:** Campos vacíos
@@ -55,6 +57,8 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
     <img src="test_case_3.png" alt="Test Case 3" height="600" />
 </p>
 
+<div class="page"/>
+
 ## Caso de Prueba 4
 - **Descripción del Test Case:** Nombre de cuenta solo letras y números
 - **Entrada:** Usuario: "@test#", Contraseña: "test1234"
@@ -64,6 +68,8 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
 <p align="center">
     <img src="test_case_4.png" alt="Test Case 4" height="600" />
 </p>
+
+<div class="page"/>
 
 ## Caso de Prueba 5
 - **Descripción del Test Case:** Contraseña longitud válida
@@ -75,6 +81,9 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
     <img src="test_case_5.png" alt="Test Case 5" height="600" />
 </p>
 
+<div class="page"/>
+
+
 ## Caso de Prueba 6
 - **Descripción del Test Case:** Contraseña longitud inválida
 - **Entrada:** Usuario: "test", Contraseña: "test123456789"
@@ -84,6 +93,9 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
 <p align="center">
     <img src="test_case_6.png" alt="Test Case 6" height="600" />
 </p>
+
+<div class="page"/>
+
 
 ## Caso de Prueba 7
 - **Descripción del Test Case:** Validación incorrecta
@@ -95,6 +107,9 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
     <img src="test_case_7.png" alt="Test Case 7" height="600" />
 </p>
 
+
+<div class="page"/>
+
 ## Caso de Prueba 8
 - **Descripción del Test Case:** Fallo de conexión a BBDD externa
 - **Entrada:** ---
@@ -104,6 +119,9 @@ A continuación se detallan los casos de prueba para la aplicación de Android "
 <p align="center">
     <img src="test_case_8.png" alt="Test Case 8" height="600" />
 </p>
+
+
+<div class="page"/>
 
 ## Resumen
 
