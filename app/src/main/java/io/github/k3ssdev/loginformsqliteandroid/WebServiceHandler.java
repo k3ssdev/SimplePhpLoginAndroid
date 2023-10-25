@@ -23,7 +23,7 @@ import java.util.List;
 public class WebServiceHandler {
     private Activity activity_apr;
     // Genera un token único en tu aplicación
-    String token = "oPGP8M*jmePkYRnmnxU2v%TgJ&V9r4VfZv6q&LLe%q!c#3U84KWi5x9K9m$W^nVWkZzECTj64wyErbQ7u$B7J#j8m*&gK@Hc!oN$WZwkS5RmADYKLqiLFBXLaTNLKytd";
+    //String token = "oPGP8M*jmePkYRnmnxU2v%TgJ&V9r4VfZv6q&LLe%q!c#3U84KWi5x9K9m";
 
     public WebServiceHandler(Activity activity) {
         this.activity_apr = activity;
@@ -35,7 +35,7 @@ public class WebServiceHandler {
         protected String[] doInBackground(String... params) {
             String usuario_apr = params[0];
             String contrasena_apr = params[1];
-            String urlString_apr = "http://simpleloginapp.duckdns.org/validacuenta.php";
+            String urlString_apr = "http://127.0.0.1/validacuenta.php";
             //"http://192.168.1.227/validacuenta.php";
 
             String resultado_apr = null;
@@ -48,7 +48,7 @@ public class WebServiceHandler {
                 conexion.setDoOutput(true);
 
                 // Agrega el token como cabecera a la solicitud, COMENTAR ESTA LÍNEA PARA PROBAR LA APP EN SERVER PROPIO
-                conexion.setRequestProperty("Authorization", "Bearer " + token);
+                //conexion.setRequestProperty("Authorization", "Bearer " + token);
 
                 // Crear los datos del formulario
                 String datos = "usuario=" + URLEncoder.encode(usuario_apr, "UTF-8") + "&contrasena=" + URLEncoder.encode(contrasena_apr, "UTF-8");
@@ -137,7 +137,7 @@ public class WebServiceHandler {
     }
 
     public List<User> consultarUsuarios() {
-        String urlString_apr = "http://simpleloginapp.duckdns.org/consultarusuarios.php";
+        String urlString_apr = "http://127.0.0.1/validacuenta.php";
                 //"http://192.168.1.227/consultarusuarios.php";
         List<User> usuarios_apr = new ArrayList<>();
 
@@ -149,7 +149,7 @@ public class WebServiceHandler {
             conexion.setRequestMethod("GET");
 
             // Agrega el token como cabecera a la solicitud, COMENTAR ESTA LÍNEA PARA PROBAR LA APP EN SERVER PROPIO
-            conexion.setRequestProperty("Authorization", "Bearer " + token);
+            //conexion.setRequestProperty("Authorization", "Bearer " + token);
 
             // Leer la respuesta del servidor
             InputStream entrada = conexion.getInputStream();
