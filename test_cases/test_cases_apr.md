@@ -14,7 +14,11 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 </respuesta>
 ```
 
-![Test case 1](test_case_1.png)
+<p align="center">
+    <img src="test_case_1.png" alt="Test Case 1" height="600" />
+</p>
+
+
 
 ## Caso de Prueba 2
 - **Descripción del Test Case:** PHP conector consultausuarios.php
@@ -36,7 +40,10 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
     </usuario>
 </respuesta>
 ```
-![Test case 1](test_case_2.png)
+<p align="center">
+    <img src="test_case_2.png" alt="Test Case 2" height="600" />
+</p>
+
 
 ## Caso de Prueba 3
 - **Descripción del Test Case:** Campos vacíos
@@ -44,7 +51,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Intentar iniciar sesión
 - **Salida Esperada:** Alerta de que los campos no pueden estar vacíos
 
-![Test case 1](test_case_3.png)
+<p align="center">
+    <img src="test_case_3.png" alt="Test Case 3" height="600" />
+</p>
 
 ## Caso de Prueba 4
 - **Descripción del Test Case:** Nombre de cuenta solo letras y números
@@ -52,7 +61,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Intentar iniciar sesión
 - **Salida Esperada:** Alerta de que solo se permiten letras y números en el nombre de cuenta
 
-![Test case 1](test_case_4.png)
+<p align="center">
+    <img src="test_case_4.png" alt="Test Case 4" height="600" />
+</p>
 
 ## Caso de Prueba 5
 - **Descripción del Test Case:** Contraseña longitud válida
@@ -60,7 +71,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Intentar iniciar sesión
 - **Salida Esperada:** Alerta de que la contraseña es demasiado corta
 
-![Test case 1](test_case_5.png)
+<p align="center">
+    <img src="test_case_5.png" alt="Test Case 5" height="600" />
+</p>
 
 ## Caso de Prueba 6
 - **Descripción del Test Case:** Contraseña longitud inválida
@@ -68,7 +81,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Intentar iniciar sesión
 - **Salida Esperada:** Alerta de que la contraseña es demasiado larga
 
-![Test case 1](test_case_6.png)
+<p align="center">
+    <img src="test_case_6.png" alt="Test Case 6" height="600" />
+</p>
 
 ## Caso de Prueba 7
 - **Descripción del Test Case:** Validación incorrecta
@@ -76,7 +91,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Intentar iniciar sesión
 - **Salida Esperada:** Nueva actividad mostrando lista de intentos fallidos con fecha y hora, botón para la pantalla inicial
 
-![Test case 1](test_case_7.png)
+<p align="center">
+    <img src="test_case_7.png" alt="Test Case 7" height="600" />
+</p>
 
 ## Caso de Prueba 8
 - **Descripción del Test Case:** Fallo de conexión a BBDD externa
@@ -84,7 +101,9 @@ A continuación se detallan los casos de prueba para la aplicación "Simple Logi
 - **Acción/Evento:** Iniciar la aplicación
 - **Salida Esperada:** Mensaje de error indicando la falta de conexión a la base de datos externa
 
-![Test case 1](test_case_8.png)
+<p align="center">
+    <img src="test_case_8.png" alt="Test Case 8" height="600" />
+</p>
 
 ## Resumen
 
