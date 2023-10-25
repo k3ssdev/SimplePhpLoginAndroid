@@ -35,7 +35,7 @@ public class WebServiceHandler {
         protected String[] doInBackground(String... params) {
             String usuario_apr = params[0];
             String contrasena_apr = params[1];
-            String urlString_apr = "http://127.0.0.1/validacuenta.php";
+            String urlString_apr = "http://10.0.2.2/validacuenta.php"; // localhost para el emulador
             //"http://192.168.1.227/validacuenta.php";
 
             String resultado_apr = null;
@@ -137,7 +137,7 @@ public class WebServiceHandler {
     }
 
     public List<User> consultarUsuarios() {
-        String urlString_apr = "http://127.0.0.1/validacuenta.php";
+        String urlString_apr = "http://10.0.2.2/consultarusuarios.php";
                 //"http://192.168.1.227/consultarusuarios.php";
         List<User> usuarios_apr = new ArrayList<>();
 
